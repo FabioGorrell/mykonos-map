@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
 html,body,#wrap,#map{width:100%;height:100%;margin:0} body{font-family:Arial,sans-serif;overflow:hidden} #wrap{position:relative;height:100vh} #map{position:absolute;inset:0} .hdr{position:absolute;top:0;left:0;right:0;z-index:1000;background:rgba(10,16,30,.9);color:#fff;padding:12px 18px;display:flex;justify-content:space-between} .legend{position:absolute;left:16px;bottom:16px;z-index:1000;background:rgba(255,255,255,.88);padding:12px 16px;border-radius:999px;display:flex;gap:14px;font-size:13px;font-weight:700} .legend .leg-item{font-size:13px;letter-spacing:1px;color:#5f6b7a} .legend .leg-dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,.7);vertical-align:middle} .area-group{display:flex;align-items:center;gap:6px}.area-pin{width:11px;height:11px;border-radius:50%;background:#d8b26a;border:2px solid rgba(255,255,255,.95);box-shadow:0 8px 18px rgba(15,23,42,.18)} .area-label-box{background:rgba(255,255,255,.98);border:1px solid rgba(15,23,42,.12);color:#0f172a;padding:3px 9px;border-radius:999px;font-size:10px;letter-spacing:1px;font-weight:700;text-transform:uppercase;box-shadow:0 8px 18px rgba(15,23,42,.10);white-space:nowrap;position:relative} .leaflet-top.leaflet-left{margin-top:54px;} .leaflet-control-zoom{margin-top:54px !important;} .marker-dot{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.95)} .marker-dot.prestige{background:linear-gradient(135deg,#ffb3b3 0%,#d62828 100%)} .marker-dot.luxury-superior{background:linear-gradient(135deg,#dbe5ef 0%,#7c94ab 100%)} .marker-dot.luxury{background:linear-gradient(135deg,#efd9ae 0%,#b47c33 100%)} .popup-card{width:min(88vw, 280px);background:#eef3f7;overflow:hidden;border-radius:4px} .popup-img,.popup-img-placeholder{width:100%;height:140px} .popup-img{object-fit:cover;display:block} .popup-img-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a 0%,#334155 100%)} .popup-body{padding:12px 14px 14px} .popup-name{font-weight:700;margin:4px 0 6px} .popup-meta{font-size:11px;color:#667889;margin-bottom:12px} .popup-btn{display:block;text-align:center;background:#d8b26a;color:#3a3a3a!important;text-decoration:none;font-size:9px;font-weight:700;padding:7px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;opacity:1;transition:opacity .18s ease, background-color .18s ease, transform .18s ease;}.popup-btn, .popup-btn:visited{color:#3a3a3a!important;} .popup-btn:hover{opacity:.82;background:#c9a96e;color:#3a3a3a!important;transform:none;} .popup-card .popup-btn, .popup-btn:visited{color:#3a3a3a!important;} .popup-btn:hover{opacity:.82;background:#c9a96e;color:#3a3a3a!important;transform:none;} .popup-close{position:absolute;top:6px;right:8px;z-index:9;border:0;border-radius:50%;width:24px;height:24px;background:rgba(18,25,42,.7);color:#d8b26a;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;} .popup-close:hover{cursor:pointer;} .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:transparent;box-shadow:none} .leaflet-popup-content{margin:0!important;width:min(88vw, 280px)!important} .leaflet-popup-close-button{display:none!important} 
-
 @media (max-width: 768px){
   .hdr{padding:10px 12px}
   .hdr-title,.hdr-sub{font-size:10px;letter-spacing:2px}
@@ -71,8 +70,41 @@ const villas = [
   {"name":"Demilos Villa Aleomandra","area":"Aleomandra","beds":5,"guests":12,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-for-rent/","lat":37.41166088886939,"lng":25.31086942801828,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Luxury-Villas-for-Rent.webp"},
   {"name":"Villa Achini Ornos","area":"Ornos","beds":3,"guests":6,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/luxury-villas-in-mykonos/","lat":37.42673506301717,"lng":25.317677533844545,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Luxury-Villas-in-Mykonos.webp"},
   {"name":"Villa Rosa Kanalia","area":"Kanalia","beds":4,"guests":8,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-ornos/","lat":37.4377494107459,"lng":25.305137800566772,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Luxury-Villas-Ornos.webp"},
-  {"name":"Villa Chrisoula Mykonos","area":"Psarou","beds":9,"guests":20,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-villas-with-9-bedrooms/","lat":37.41949532726861,"lng":25.337006156716388,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Villas-with-9-Bedrooms.jpg"}
+  {"name":"Villa Chrisoula Mykonos","area":"Psarou","beds":9,"guests":20,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-villas-with-9-bedrooms/","lat":37.41949532726861,"lng":25.337006156716388,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Villas-with-9-Bedrooms.jpg"},
+  {"name":"Villa Mykonos Tagoo","area":"Mykonos Town","beds":5,"guests":10,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/villas-in-mykonos-town/","lat":37.44753576889859,"lng":25.33086370737045,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Villas-in-Mykonos-Town.webp"},
+  {"name":"Villa Liana Kanalia","area":"Kanalia","beds":4,"guests":5,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villas-in-kanalia/","lat":37.43650513170849,"lng":25.311464393677117,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Villas-in-Kanalia.webp"},
+  {"name":"Vineyard Estate Mykonos","area":"Ano Mera","beds":8,"guests":16,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-villas-for-large-group/","lat":37.428735937231814,"lng":25.358619252094023,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Villas-for-Large-Group.webp"},
+  {"name":"Villa Liakada Choulakia","area":"Houlakia","beds":5,"guests":12,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-beachfront-villa/","lat":37.47743633975093,"lng":25.31527453581332,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Villa-Liakada-Choulakia-1.webp"},
+  {"name":"Villa Perla Nera I","area":"Psarou","beds":5,"guests":10,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-villas-psarou-beach/","lat":37.41206860760767,"lng":25.335847499787484,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/06/Mykonos-Villas-Psarou-Beach.webp"},
+  {"name":"Villa Perla Nera II","area":"Psarou","beds":6,"guests":12,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-beach-villas-psarou/","lat":37.41206860760767,"lng":25.335847499787484,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Beach-Villas-Psarou.avif"}
 ];
-// NOTE: truncated in this attempt - will fix
+const tierClass={"Prestige":"prestige","Luxury Superior":"luxury-superior","Luxury":"luxury"};
+const map=L.map('map',{zoomControl:true}).setView([37.447,25.357],12.2);
+setTimeout(()=>{const z=document.querySelector('.leaflet-top .leaflet-left .leaflet-control-zoom'); if(z) z.style.marginTop='54px';},0);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=cb1_4afi_1_d01323898555540a6507852f',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+const areaLabels = [
+  [37.444141637803234,25.326273061760464,'Mykonos Town / Chora'],
+  [37.46919340205978,25.32065571056055,'Agios Stefanos'],
+  [37.435022363935275,25.40524692804222,'Kalo Livadi'],
+  [37.41501649694803,25.369004761624844,'Super Paradise'],
+  [37.42415116210897,25.322692157435245,'Ornos'],
+  [37.413817210615925,25.347273582068695,'Platis Gialos'],
+  [37.4622913832201,25.375636107105244,'Ftelia'],
+  [37.447153847887904,25.32723691995767,'Little Venice']
+];
+areaLabels.forEach(a=>L.marker([a[0],a[1]],{icon:L.divIcon({className:'',html:`<div class="area-group"><div class="area-pin"></div><div class="area-label-box">${a[2]}</div></div>`,iconSize:[1,1],iconAnchor:[0,0]})}).addTo(map));
+const cluster=L.markerClusterGroup({showCoverageOnHover:false,chunkedLoading:true});
+function popupHtml(v){
+  const img=v.photo_url?`<img src="${v.photo_url}" class="popup-img" alt="${v.name}">`:'<div class="popup-img-placeholder"><span style="color:#d8b26a;letter-spacing:2px;font-size:10px">AEGEAN BLU</span></div>';
+  return `<div class="popup-card"><button type="button" class="popup-close">&times;</button>${img}<div class="popup-body"><div style="font-size:9px;letter-spacing:2px;color:#d8b26a;text-transform:uppercase;font-weight:700">${v.tier}</div><div class="popup-name">${v.name}</div><div class="popup-meta">${v.area} • ${v.beds} bedrooms • up to ${v.guests} guests</div><a class="popup-btn" href="${v.url}" target="_blank" rel="noopener">View Property</a></div></div>`;
+}
+villas.forEach(v=>{
+  const icon=L.divIcon({className:'',html:`<div class="marker-dot ${tierClass[v.tier]||'luxury'}"></div>`,iconSize:[18,18],iconAnchor:[9,9]});
+  const m=L.marker([v.lat,v.lng],{icon,riseOnHover:true});
+  m.bindPopup(popupHtml(v),{closeButton:false,autoPan:true,keepInView:true,maxWidth:300});
+  cluster.addLayer(m);
+});
+map.addLayer(cluster);
+map.fitBounds(cluster.getBounds().pad(0.2));
+map.on('popupopen',ev=>{const el=ev.popup.getElement();if(!el)return;const b=el.querySelector('.popup-close');if(b)b.onclick=()=>ev.popup.remove();});
 </script></body></html>
