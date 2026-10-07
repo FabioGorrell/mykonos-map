@@ -25,7 +25,7 @@ html,body,#wrap,#map{width:100%;height:100%;margin:0} body{font-family:Arial,san
   .legend .leg-item{font-size:10px}
   .popup-card{width:min(92vw, 260px)}
 }
-</style></head><body><div id="wrap"><div class="hdr"><div>Mykonos</div><div>48 villas</div></div><div id="map"></div><div class="legend"><span><span class="marker-dot prestige" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Prestige</span><span><span class="marker-dot luxury-superior" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Luxury Superior</span><span><span class="marker-dot luxury" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Luxury</span></div></div>
+</style></head><body><div id="wrap"><div class="hdr"><div>Mykonos</div><div>49 villas</div></div><div id="map"></div><div class="legend"><span><span class="marker-dot prestige" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Prestige</span><span><span class="marker-dot luxury-superior" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Luxury Superior</span><span><span class="marker-dot luxury" style="display:inline-block;width:12px;height:12px;min-width:12px;min-height:12px;"></span> Luxury</span></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script>
@@ -60,7 +60,7 @@ const villas = [
   {"name":"Megali Ammos Villa Two","area":"Megali Ammos","beds":3,"guests":6,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villas-sunset-views/","lat":37.44056469125755,"lng":25.327255724894094,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2025/09/Megali-Ammos-Villa-Two-Sea-Views.jpg"},
   {"name":"Megali Ammos Villa Three","area":"Megali Ammos","beds":2,"guests":4,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villas-for-rent/","lat":37.44056469125755,"lng":25.327255724894094,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2025/10/Megali-Ammos-Villa-Three.jpg"},
   {"name":"Megali Ammos Estate","area":"Megali Ammos","beds":8,"guests":16,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/luxury-mykonos-large-villas/","lat":37.44056469125755,"lng":25.327255724894094,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2025/10/Megali-Ammos-Villa-One-Poolside.jpg"},
-  {"name":"Super Paradise Private Estate","area":"Super Paradise","beds":13,"guests":26,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villa-large-groups/","lat":37.41735261107496,"lng":25.372264248176485,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2025/10/Super-Paradise-Private-Estate-Property.webp"},
+  {"name":"Super Paradise Private Estate","area":"Super Paradise","beds":13,"guests":26,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villa-large-groups/","lat":37.41735261107496,"lng":25.372264248176485,"photo_url":"https://www.aegeanblu.villas/villa/mykonos-villa-large-groups/","lat":37.41735261107496,"lng":25.372264248176485,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2025/10/Super-Paradise-Private-Estate-Property.webp"},
   {"name":"Luxury Beach Estate Mykonos","area":"Kalo Livadi","beds":37,"guests":74,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-beach-villas/","lat":37.43274999641742,"lng":25.413850966490166,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/07/Luxury-Beach-Estate-Mykonos.webp"},
   {"name":"Aleomandra Retreat Mykonos","area":"Aleomandra","beds":10,"guests":20,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-aleomandra/","lat":37.41024455824696,"lng":25.31113949686075,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Luxury-Villas-Aleomandra-Sea-Views-1.jpg"},
   {"name":"Helios Exclusive Estate","area":"Aleomandra","beds":9,"guests":18,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/luxurious-mykonos-villas/","lat":37.40964078943108,"lng":25.311226269277242,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Luxurious-Mykonos-Villas-Terrace.webp"},
@@ -70,42 +70,6 @@ const villas = [
   {"name":"Demilos Villa Aleomandra","area":"Aleomandra","beds":5,"guests":12,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-for-rent/","lat":37.41166088886939,"lng":25.31086942801828,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Luxury-Villas-for-Rent.webp"},
   {"name":"Villa Achini Ornos","area":"Ornos","beds":3,"guests":6,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/luxury-villas-in-mykonos/","lat":37.42673506301717,"lng":25.317677533844545,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Luxury-Villas-in-Mykonos.webp"},
   {"name":"Villa Rosa Kanalia","area":"Kanalia","beds":4,"guests":8,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-ornos/","lat":37.4377494107459,"lng":25.305137800566772,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Luxury-Villas-Ornos.webp"},
-  {"name":"Villa Chrisoula Mykonos","area":"Psarou","beds":9,"guests":20,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-villas-with-9-bedrooms/","lat":37.41949532726861,"lng":25.337006156716388,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Villas-with-9-Bedrooms.jpg"},
-  {"name":"Villa Mykonos Tagoo","area":"Mykonos Town","beds":5,"guests":10,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/villas-in-mykonos-town/","lat":37.44753576889859,"lng":25.33086370737045,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Villas-in-Mykonos-Town.webp"},
-  {"name":"Villa Liana Kanalia","area":"Kanalia","beds":4,"guests":5,"tier":"Luxury","url":"https://www.aegeanblu.villas/villa/mykonos-villas-in-kanalia/","lat":37.43650513170849,"lng":25.311464393677117,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Villas-in-Kanalia.webp"},
-  {"name":"Vineyard Estate Mykonos","area":"Ano Mera","beds":8,"guests":16,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-villas-for-large-group/","lat":37.428735937231814,"lng":25.358619252094023,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Villas-for-Large-Group.webp"},
-  {"name":"Villa Liakada Choulakia","area":"Houlakia","beds":5,"guests":12,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-beachfront-villa/","lat":37.47743633975093,"lng":25.31527453581332,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Villa-Liakada-Choulakia-1.webp"},
-  {"name":"Villa Perla Nera I","area":"Psarou","beds":5,"guests":10,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-villas-psarou-beach/","lat":37.41206860760767,"lng":25.335847499787484,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/06/Mykonos-Villas-Psarou-Beach.webp"},
-  {"name":"Villa Perla Nera II","area":"Psarou","beds":6,"guests":12,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-beach-villas-psarou/","lat":37.41206860760767,"lng":25.335847499787484,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/05/Mykonos-Beach-Villas-Psarou.avif"},
-  {"name":"Majestic Kalo Livadi","area":"Kalo Livadi","beds":8,"guests":16,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-luxury-villas-8-bedrooms/","lat":37.43330925019334,"lng":25.400451983960153,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/11/Majestic-Kalo-Livadi-1.jpg"}
+  {"name":"Villa Chrisoula Mykonos","area":"Psarou","beds":9,"guests":20,"tier":"Prestige","url":"https://www.aegeanblu.villas/villa/mykonos-villas-with-9-bedrooms/","lat":37.41949532726861,"lng":25.337006156716388,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/04/Mykonos-Villas-with-9-Bedrooms.webp"},
+  {"name":"Chora Boutique Villa","area":"Mykonos Town","beds":7,"guests":14,"tier":"Luxury Superior","url":"https://www.aegeanblu.villas/villa/mykonos-town-luxury-villas/","lat":37.44310050368358,"lng":25.329716255485696,"photo_url":"https://www.aegeanblu.villas/wp-content/uploads/2026/11/Chora-Boutique-Villa-1.webp"},
 ];
-const tierClass={"Prestige":"prestige","Luxury Superior":"luxury-superior","Luxury":"luxury"};
-const map=L.map('map',{zoomControl:true}).setView([37.447,25.357],12.2);
-setTimeout(()=>{const z=document.querySelector('.leaflet-top .leaflet-left .leaflet-control-zoom'); if(z) z.style.marginTop='54px';},0);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=cb1_4afi_1_d01323898555540a6507852f',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
-const areaLabels = [
-  [37.444141637803234,25.326273061760464,'Mykonos Town / Chora'],
-  [37.46919340205978,25.32065571056055,'Agios Stefanos'],
-  [37.435022363935275,25.40524692804222,'Kalo Livadi'],
-  [37.41501649694803,25.369004761624844,'Super Paradise'],
-  [37.42415116210897,25.322692157435245,'Ornos'],
-  [37.413817210615925,25.347273582068695,'Platis Gialos'],
-  [37.4622913832201,25.375636107105244,'Ftelia'],
-  [37.447153847887904,25.32723691995767,'Little Venice']
-];
-areaLabels.forEach(a=>L.marker([a[0],a[1]],{icon:L.divIcon({className:'',html:`<div class="area-group"><div class="area-pin"></div><div class="area-label-box">${a[2]}</div></div>`,iconSize:[1,1],iconAnchor:[0,0]})}).addTo(map));
-const cluster=L.markerClusterGroup({showCoverageOnHover:false,chunkedLoading:true});
-function popupHtml(v){
-  const img=v.photo_url?`<img src="${v.photo_url}" class="popup-img" alt="${v.name}">`:'<div class="popup-img-placeholder"><span style="color:#d8b26a;letter-spacing:2px;font-size:10px">AEGEAN BLU</span></div>';
-  return `<div class="popup-card"><button type="button" class="popup-close">&times;</button>${img}<div class="popup-body"><div style="font-size:9px;letter-spacing:2px;color:#d8b26a;text-transform:uppercase;font-weight:700">${v.tier}</div><div class="popup-name">${v.name}</div><div class="popup-meta">${v.area} • ${v.beds} bedrooms • up to ${v.guests} guests</div><a class="popup-btn" href="${v.url}" target="_blank" rel="noopener">View Property</a></div></div>`;
-}
-villas.forEach(v=>{
-  const icon=L.divIcon({className:'',html:`<div class="marker-dot ${tierClass[v.tier]||'luxury'}"></div>`,iconSize:[18,18],iconAnchor:[9,9]});
-  const m=L.marker([v.lat,v.lng],{icon,riseOnHover:true});
-  m.bindPopup(popupHtml(v),{closeButton:false,autoPan:true,keepInView:true,maxWidth:300});
-  cluster.addLayer(m);
-});
-map.addLayer(cluster);
-map.fitBounds(cluster.getBounds().pad(0.2));
-map.on('popupopen',ev=>{const el=ev.popup.getElement();if(!el)return;const b=el.querySelector('.popup-close');if(b)b.onclick=()=>ev.popup.remove();});
-</script></body></html>
