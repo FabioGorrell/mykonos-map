@@ -82,22 +82,20 @@ setTimeout(()=>{const z=document.querySelector('.leaflet-top .leaflet-left .leaf
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=cb1_4afi_1_d01323898555540a6507852f',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
 const areaLabels = [
   [37.444141637803234,25.326273061760464,'Mykonos Town / Chora'],
-  [37.46919340205978,25.32065571056055,'Agios Stefanos'],
   [37.434564267908996,25.405874779103076,'Kalo Livadi'],
   [37.41508326355238,25.368711300639983,'Super Paradise'],
   [37.42408639812317,25.322825138164013,'Ornos'],
   [37.414407789424374,25.344390254907626,'Platis Gialos'],
-  [37.461312245232605,25.375125967262743,'Ftelia'],
-  [37.447153847887904,25.32723691995767,'Little Venice']
+  [37.461312245232605,25.375125967262743,'Ftelia']
 ];
-areaLabels.forEach(a=>L.marker([a[0],a[1]],{icon:L.divIcon({className:'',html:`<div class=\"area-group\"><div class=\"area-pin\"></div><div class=\"area-label-box\">${a[2]}</div></div>`,iconSize:[1,1],iconAnchor:[0,0]})}).addTo(map));
+areaLabels.forEach(a=>L.marker([a[0],a[1]],{icon:L.divIcon({className:'',html:`<div class="area-group"><div class="area-pin"></div><div class="area-label-box">${a[2]}</div></div>`,iconSize:[1,1],iconAnchor:[0,0]})}).addTo(map));
 const cluster=L.markerClusterGroup({showCoverageOnHover:false,chunkedLoading:true});
 function popupHtml(v){
-  const img=v.photo_url?`<img src=\"${v.photo_url}\" class=\"popup-img\" alt=\"${v.name}\">`:'<div class=\"popup-img-placeholder\"><span style=\"color:#d8b26a;letter-spacing:2px;font-size:10px\">AEGEAN BLU</span></div>';
-  return `<div class=\"popup-card\"><button type=\"button\" class=\"popup-close\">&times;</button>${img}<div class=\"popup-body\"><div style=\"font-size:9px;letter-spacing:2px;color:#d8b26a;text-transform:uppercase;font-weight:700\">${v.tier}</div><div class=\"popup-name\">${v.name}</div><div class=\"popup-meta\">${v.area} • ${v.beds} bedrooms • up to ${v.guests} guests</div><a class=\"popup-btn\" href=\"${v.url}\" target=\"_blank\" rel=\"noopener\">View Property</a></div></div>`;
+  const img=v.photo_url?`<img src="${v.photo_url}" class="popup-img" alt="${v.name}">`:'<div class="popup-img-placeholder"><span style="color:#d8b26a;letter-spacing:2px;font-size:10px">AEGEAN BLU</span></div>';
+  return `<div class="popup-card"><button type="button" class="popup-close">&times;</button>${img}<div class="popup-body"><div style="font-size:9px;letter-spacing:2px;color:#d8b26a;text-transform:uppercase;font-weight:700">${v.tier}</div><div class="popup-name">${v.name}</div><div class="popup-meta">${v.area} • ${v.beds} bedrooms • up to ${v.guests} guests</div><a class="popup-btn" href="${v.url}" target="_blank" rel="noopener">View Property</a></div></div>`;
 }
 villas.forEach(v=>{
-  const icon=L.divIcon({className:'',html:`<div class=\"marker-dot ${tierClass[v.tier]||'luxury'}\"></div>`,iconSize:[18,18],iconAnchor:[9,9]});
+  const icon=L.divIcon({className:'',html:`<div class="marker-dot ${tierClass[v.tier]||'luxury'}"></div>`,iconSize:[18,18],iconAnchor:[9,9]});
   const m=L.marker([v.lat,v.lng],{icon,riseOnHover:true});
   m.bindPopup(popupHtml(v),{closeButton:false,autoPan:true,keepInView:true,maxWidth:300});
   cluster.addLayer(m);
