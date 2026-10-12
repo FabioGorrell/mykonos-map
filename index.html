@@ -86,7 +86,11 @@ const areaLabels = [
   [37.41508326355238,25.368711300639983,'Super Paradise'],
   [37.42408639812317,25.322825138164013,'Ornos'],
   [37.414407789424374,25.344390254907626,'Platis Gialos'],
-  [37.461312245232605,25.375125967262743,'Ftelia']
+  [37.461312245232605,25.375125967262743,'Ftelia'],
+  [37.41636167271824,25.33817549558542,'Psarou'],
+  [37.40787624185309,25.348874344057357,'Paraga'],
+  [37.46621469477314,25.32296117361929,'Tourlos / Ferry Port'],
+  [37.43498086063748,25.346507014339636,'Mykonos Airport']
 ];
 areaLabels.forEach(a=>L.marker([a[0],a[1]],{icon:L.divIcon({className:'',html:`<div class="area-group"><div class="area-pin"></div><div class="area-label-box">${a[2]}</div></div>`,iconSize:[1,1],iconAnchor:[0,0]})}).addTo(map));
 const cluster=L.markerClusterGroup({showCoverageOnHover:false,chunkedLoading:true});
