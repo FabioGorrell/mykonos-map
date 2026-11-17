@@ -13,7 +13,10 @@ html,body,#wrap,#map{width:100%;height:100%;margin:0} body{font-family:Arial,san
 .search-item{padding:10px 14px;cursor:pointer;font-size:13px;color:#0f172a;border-bottom:1px solid #f1f5f9}
 .search-item:last-child{border-bottom:none}
 .search-item:hover{background:#f8fafc}
-.search-item .tier{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#d8b26a;font-weight:700}
+.search-item .tier{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.search-item .tier.luxury{color:#b47c33}
+.search-item .tier.luxury-superior{color:#7c94ab}
+.search-item .tier.prestige{color:#d62828}
 .search-item .name{font-weight:600;margin-top:2px}
 .search-item .meta{font-size:11px;color:#64748b;margin-top:1px}
 @media (max-width:768px){.hdr{padding:10px 12px}.search-wrap{max-width:160px;margin:0 8px}#villa-search{font-size:12px;padding:6px 10px}.legend{left:10px;right:10px;bottom:10px;flex-wrap:wrap;gap:8px;padding:8px 10px;border-radius:14px}}
@@ -55,7 +58,10 @@ async function boot(){
     if(!query){searchResults.classList.remove('open');searchResults.innerHTML='';return;}
     const matches=villas.filter(v=>v.name.toLowerCase().includes(query)||v.area.toLowerCase().includes(query)).slice(0,12);
     if(!matches.length){searchResults.innerHTML='<div class="search-item" style="color:#94a3b8;cursor:default">No villas found</div>';searchResults.classList.add('open');return;}
-    searchResults.innerHTML=matches.map(v=>`<div class="search-item" data-name="${v.name.replace(/"/g,'&quot;')}"><div class="tier">${v.tier}</div><div class="name">${v.name}</div><div class="meta">${v.area} · ${v.beds} beds · ${v.guests} guests</div></div>`).join('');
+    searchResults.innerHTML=matches.map(v=>{
+      const tCls=tierClass[v.tier]||'luxury';
+      return `<div class="search-item" data-name="${v.name.replace(/"/g,'&quot;')}"><div class="tier ${tCls}">${v.tier}</div><div class="name">${v.name}</div><div class="meta">${v.area} · ${v.beds} beds · ${v.guests} guests</div></div>`;
+    }).join('');
     searchResults.classList.add('open');
   }
   searchInput.addEventListener('input',e=>showResults(e.target.value));
@@ -69,8 +75,6 @@ async function boot(){
     searchResults.classList.remove('open');
     searchInput.value=name;
     map.closePopup();
-    // zoomToShowLayer unclusters if needed, then open popup.
-    // Fallback timeout covers cases where the callback is skipped (marker already visible).
     let opened=false;
     const openCard=()=>{if(opened)return;opened=true;marker.openPopup();};
     cluster.zoomToShowLayer(marker,openCard);
