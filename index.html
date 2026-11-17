@@ -68,8 +68,13 @@ async function boot(){
     if(!marker)return;
     searchResults.classList.remove('open');
     searchInput.value=name;
-    map.setView(marker.getLatLng(),15,{animate:true});
-    cluster.zoomToShowLayer(marker,()=>{marker.openPopup();});
+    map.closePopup();
+    // zoomToShowLayer unclusters if needed, then open popup.
+    // Fallback timeout covers cases where the callback is skipped (marker already visible).
+    let opened=false;
+    const openCard=()=>{if(opened)return;opened=true;marker.openPopup();};
+    cluster.zoomToShowLayer(marker,openCard);
+    setTimeout(openCard,350);
   });
   document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))searchResults.classList.remove('open');});
 }
